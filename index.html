@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset = "UTF-8">
+        <meta http-equiv = "X-UA-Compatible" content="IE=edge">
+        <meta name = "viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href = "https://maxcdn.bootstrapcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="assets/css/style.css" />
+
+        <title>Weather Dashboard</title>
+    </head>
+
+    <body>
+        <header class="h-background">
+            <h1>Weather Dashboard</h1>
+        </header>
+
+        <main class="container-fluid mt-1">
+
+            <div class="row">
+                <div class="col-3 side">
+                    <h5>Search for a City:</h5>
+                    <form id="city-search-form" class="search">
+                        <input name="city" id="city" type="text" autofocus="true" placeholder="Enter city here" class="form-input" />
+                        <button type="submit" class="btn mt-1" id="city-search">Search</button>
+                    </form>
+                    <div id="previous-search-btns"></div>
+                </div>
+
+                <div class="col-9">
+                    <div class="col-12">
+                        <h2 id="city-name-search"></h2>
+                        <h2 id="date"></h2>
+                        <img id="weather-icon"></img>
+                        <div id="forecast-box">
+                            <p>Temperature: <span id="temperature-value"></span></p>
+                            <p>Wind Speed: <span id="wind-speed-value"></span></p>
+                            <p>Humidity: <span id="humidity-value"></span></p>
+                            <p>UV Index: <span id="uv-index"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
