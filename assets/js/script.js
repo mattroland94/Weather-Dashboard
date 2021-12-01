@@ -1,6 +1,6 @@
 var searchBtn = document.querySelector("#city-search");
 var cityl = document.querySelector("#city");
-var scityname = document.querySelector("#searched-city-name");
+var scityname = document.querySelector("#city-name-search");
 var prescontainer = document.querySelector("#previous-search-btns");
 var upforecast = document.querySelector("#updated-forecast");
 var curdate = document.querySelector("#current-date");
@@ -8,9 +8,9 @@ var curweathericon = document.querySelector("#weather-icon");
 var curtemp = document.querySelector("#temperature-value");
 var curhumidity = document.querySelector("#humidity-value");
 var curwindspeed = document.querySelector("#wind-speed-value");
-var curuvindex = document.querySelector("#uv-index-value");
+var curuvindex = document.querySelector("#uv-index");
 var forecastcontainer = document.querySelector("#weather-forecast-container");
-forecastContainer.addClass = "row";
+forecastcontainer.addClass = "row";
 var lastsearch;
 
 var savcity = JSON.parse(localStorage.getItem('cities')) || [];
@@ -95,13 +95,13 @@ function findWeather(city) {
                         }
 
                         function addCard() {
-                            forecastContainer.innerHTML = "";
+                            forecastcontainer.innerHTML = "";
 
                             for (i = 0; i <= 4; i++) {
                                 var nCard = document.createElement("div");
                                 nCard.className = "card";
                                 nCard.setAttribute("id", "card-style");
-                                forecastContainer.appendChild(nCard);
+                                forecastcontainer.appendChild(nCard);
 
                                 var cardBod = document.createElement("div");
                                 cardBod.className = "card-body";
@@ -109,7 +109,7 @@ function findWeather(city) {
                                 var cardTit = document.createElement("div");
                                 cardTit.className = "day-title";
 
-                                var curDateEl = momen().add(i + 1, 'days').format("(MM/DD/YYYY)");
+                                var curDateEl = moment().add(i + 1, 'days').format("(MM/DD/YYYY)");
                                 cardTit.innerHTML = curDateEl;
 
                                 var cardIco = document.createElement("img");
@@ -129,7 +129,7 @@ function findWeather(city) {
                                 cardHum.className = "day-humidity";
                                 cardHum.innerHTML = "Humidity: " + data.daily[i].wind_speed + "%";
 
-                                newCard.appendChild(cardBod);
+                                nCard.appendChild(cardBod);
                                 cardBod.appendChild(cardTit);
                                 cardBod.appendChild(cardIco);
                                 cardBod.appendChild(cardTem);
@@ -138,7 +138,7 @@ function findWeather(city) {
                             }
                         }
 
-                        addCards();
+                        addCard();
 
                     })
             }
@@ -149,7 +149,7 @@ function viewCityClick(event) {
     event.preventDefault();
 
     var searchCity = cityl.value;
-    getWeather(searchCity);
+    findWeather(searchCity);
     scityname.innerHTML = searchCity;
 }
 
