@@ -76,7 +76,7 @@ function findWeather(city) {
                         var curweathericonEl = data.current.weather[0].icon;
                         curweathericon.setAttribute("src", "http://openweathermap.org/img/wn/" + curweathericonEl + "@2x.png");
 
-                        curtemp.innHTML = data.current.temp = " °F";
+                        curtemp.innerHTML = data.current.temp = " °F";
                         curhumidity.innerHTML = data.current.humidity + " %";
                         curwindspeed.innerHTML = data.current.wind_speed + " mph";
 
